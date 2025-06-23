@@ -1,56 +1,19 @@
-<!--
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
 
-  http://www.apache.org/licenses/LICENSE-2.0
+# Apache HBase
+- Apache HBase NoSQL columnar datastore
 
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
--->
+- https://hbase.apache.org is an open-source, distributed, versioned, column-oriented store modeled after Google' [Bigtable](https://research.google.com/archive/bigtable.html): A Distributed Storage System for Structured Data by Chang et al. Just as Bigtable leverages the distributed data storage provided by the Google File System, HBase provides Bigtable-like capabilities on top of [Apache Hadoop](https://hadoop.apache.org/).
 
-![hbase-logo](https://raw.githubusercontent.com/apache/hbase/master/src/site/resources/images/hbase_logo_with_orca_large.png)
+- HBase是Hadoop的生态系统，是建立在Hadoop文件系统（HDFS）之上的分布式、面向列的数据库，通过利用Hadoop的文件系统提供容错能力。如果你需要进行实时读写或者随机访问大规模的数据集的时候，请考虑使用HBase！
 
-[Apache HBase](https://hbase.apache.org) is an open-source, distributed, versioned, column-oriented store modeled after Google' [Bigtable](https://research.google.com/archive/bigtable.html): A Distributed Storage System for Structured Data by Chang et al. Just as Bigtable leverages the distributed data storage provided by the Google File System, HBase provides Bigtable-like capabilities on top of [Apache Hadoop](https://hadoop.apache.org/).
+- HBase作为Google Bigtable的开源实现，Google Bigtable利用GFS作为其文件存储系统类似，则HBase利用Hadoop HDFS作为其文件存储系统；Google通过运行MapReduce来处理Bigtable中的海量数据，同样，HBase利用Hadoop MapReduce来处理HBase中的海量数据；Google Bigtable利用Chubby作为协同服务，HBase利用Zookeeper作为对应。
 
-# Getting Start
-To get started using HBase, the full documentation for this release can be found under the doc/ directory that accompanies this README. Using a browser, open the docs/index.html to view the project home page (or browse https://hbase.apache.org). The hbase '[book](https://hbase.apache.org/book.html)' has a 'quick start' section and is where you should being your exploration of the hbase project.
+-	Base 是一个高可靠、高性能、面向列、可伸缩的分布式数据库，主要用来存储非结构化和半结构化的松散数据，设计它的目的就是用于处理非常庞大的表——通过水平扩展的方式，用计算机集群就可以处理由超过 10 亿行数据和数百万列元素所组成的数据表。
 
-The latest HBase can be downloaded from the [download page](https://hbase.apache.org/downloads.html).
+- 参考 https://www.bookstack.cn/read/BigData-Notes/README.md
+- hbase https://hbase.apache.org/book.html
 
-We use mailing lists to send notice and discuss. The mailing lists and archives are listed [here](http://hbase.apache.org/mail-lists.html)
-
-We use the #hbase channel on the official [ASF Slack Workspace](https://the-asf.slack.com/) for real time questions and discussions. Please mail dev@hbase.apache.org to request an invite.
-
-# How to Contribute
-The source code can be found at https://hbase.apache.org/source-repository.html
-
-The HBase issue tracker is at https://hbase.apache.org/issue-tracking.html
-
-Notice that, the public registration for https://issues.apache.org/ has been disabled due to spam. If you want to contribute to HBase, please send an email to [private@hbase.apache.org](mailto:private@hbase.apache.org) in the follow format so the HBase PMC members can acquire a jira account for you:
-
-```
-Subject: Request for Jira account
-
-Contents of the mail(should be in English):
-Preferred Jira Id: [a-z0-9]+
-Full Name:
-E-Mail Address:
-
-Reason: Jira Id you wish to contribute to, or details around the bug/feature you wish to report or work on.
-```
-
-> **_NOTE:_** we need to process the requests manually so it may take sometime, for example, up to a week, for us to respond to your request.
-
-# About
-Apache HBase is made available under the [Apache License, version 2.0](https://hbase.apache.org/license.html)
-
-The HBase distribution includes cryptographic software. See the export control notice [here](https://hbase.apache.org/export_control.html).
+## 配置文件参数说明
+- 配置文件hbase-site.xml
+- hbase.cluster.distributed
+- 集群的模式，分布式还是单机模式，如果设置成false的话，HBase进程和Zookeeper进程在同一个JVM进程。

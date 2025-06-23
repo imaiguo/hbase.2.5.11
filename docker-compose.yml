@@ -1,0 +1,17 @@
+services:
+  hbase:
+    image: harisekhon/hbase:2.1
+    container_name: hbase
+    hostname: habse
+    environment:
+      TZ: 'Asia/Shanghai'
+      LANG: 'C.UTF-8'
+    ports:
+      - "2181:2181"    # HBase ZooKeeper端口
+      - "16010:16010"  # HBase Master端口
+      - "16030:16030"  # HBase RegionServer端口
+    volumes:
+      - '/etc/localtime:/etc/localtime'
+      - '/etc/timezone:/etc/timezone'
+      - ./data:/data   # 配置HBase数据目录的挂载点
+      - ./conf/:/hbase/conf/
